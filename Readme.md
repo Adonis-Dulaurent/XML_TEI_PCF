@@ -11,7 +11,9 @@ The French Communist Party (PCF) was the most influential political party in Fra
 The documents consist of three meeting reports from the French Communist Party:
 
    . Doc 1: September 4, 1944
+   
    . Doc 2: September 11, 1944
+   
    . Doc 3: September 18, 1944
 
 These documents are preserved in the departmental archives of Seine-Saint-Denis (54 Avenue du Président-Salvador-Allende, 93000 Bobigny, France).
