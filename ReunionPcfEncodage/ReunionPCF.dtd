@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT TEI (teiHeader, text)>
+
+<!-- TEI Header -->
+<!ELEMENT teiHeader (fileDesc, publicationStmt, sourceDesc)>
+<!ELEMENT fileDesc (title)>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT publicationStmt (publisher, availability, licence)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT availability (p)>
+<!ELEMENT p (#PCDATA)>
+<!ELEMENT licence (#PCDATA)>
+<!ELEMENT sourceDesc (msDesc)>
+<!ELEMENT msDesc (msIdentifier, msItem)>
+<!ELEMENT msIdentifier (country, settlement, repository, idno)>
+<!ELEMENT country (#PCDATA)>
+<!ELEMENT settlement (#PCDATA)>
+<!ELEMENT repository (#PCDATA)>
+<!ELEMENT idno (#PCDATA)>
+<!ELEMENT msItem (locus, textlang)>
+<!ELEMENT locus (#PCDATA)>
+<!ELEMENT textlang (#PCDATA)>
+
+<!-- Body of the text TEI -->
+<!ELEMENT text (body)>
+<!ELEMENT body (div+)>
+
+<!-- Contents of each document -->
+<!ELEMENT div (head, div*, listPerson?, date?, placeName?, keywords?)>
+<!ATTLIST div type (document | content | section) #REQUIRED>
+
+<!-- Paragraphs and heading within div -->
+<!ELEMENT head (#PCDATA)>
+<!ELEMENT l (#PCDATA)>
+
+<!-- Names, aliases, and roles -->
+<!ELEMENT listPerson (person+)>
+<!ELEMENT person (persName?, alias*, roleName?)>
+<!ELEMENT persName (#PCDATA)>
+<!ELEMENT alias (#PCDATA)>
+<!ELEMENT roleName (#PCDATA)>
+
+<!-- Date and place -->
+<!ELEMENT date (#PCDATA)>
+<!ATTLIST date when CDATA #IMPLIED>
+<!ELEMENT placeName (#PCDATA)>
+
+<!-- Subject and keywords -->
+<!ELEMENT keywords (term+)>
+<!ELEMENT term (#PCDATA)>
+<!ATTLIST term type CDATA #IMPLIED>
+
+
