@@ -2,52 +2,75 @@
 <!ELEMENT TEI (teiHeader, text)>
 
 <!-- TEI Header -->
-<!ELEMENT teiHeader (fileDesc, publicationStmt, sourceDesc)>
-<!ELEMENT fileDesc (title)>
+<!ELEMENT teiHeader (fileDesc)>
+<!ELEMENT fileDesc (titleStmt, publicationStmt, sourceDesc)>
+<!ELEMENT titleStmt (title, author)>
 <!ELEMENT title (#PCDATA)>
-<!ELEMENT publicationStmt (publisher, availability, licence)>
-<!ELEMENT publisher (#PCDATA)>
-<!ELEMENT availability (p)>
-<!ELEMENT p (#PCDATA)>
-<!ELEMENT licence (#PCDATA)>
+<!ELEMENT author (#PCDATA)>
+<!ELEMENT publicationStmt (authority, date ,availability)>
+<!ELEMENT authority (#PCDATA)>
+<!ELEMENT availability (licence)>
+<!ELEMENT licence (#PCDATA) >
+<!ELEMENT date (#PCDATA)>
+
 <!ELEMENT sourceDesc (msDesc)>
-<!ELEMENT msDesc (msIdentifier, msItem)>
+<!ELEMENT msDesc (msIdentifier)>
 <!ELEMENT msIdentifier (country, settlement, repository, idno)>
 <!ELEMENT country (#PCDATA)>
-<!ELEMENT settlement (#PCDATA)>
-<!ELEMENT repository (#PCDATA)>
+<!ATTLIST country key NMTOKEN #IMPLIED>
+<!ELEMENT settlement (#PCDATA) >
+<!ATTLIST settlement ref CDATA #IMPLIED>
+<!ATTLIST settlement type NMTOKEN #IMPLIED>
+<!ELEMENT repository (#PCDATA) >
+<!ATTLIST repository xml:lang NMTOKEN #REQUIRED>
 <!ELEMENT idno (#PCDATA)>
-<!ELEMENT msItem (locus, textlang)>
-<!ELEMENT locus (#PCDATA)>
-<!ELEMENT textlang (#PCDATA)>
 
-<!-- Body of the text TEI -->
+<!-- Body of the text TEI-->
+
 <!ELEMENT text (body)>
-<!ELEMENT body (div+)>
+<!ELEMENT body (div1+)>
 
-<!-- Contents of each document -->
-<!ELEMENT div (head, div*, listPerson?, date?, placeName?, keywords?)>
-<!ATTLIST div type (document | content | section) #REQUIRED>
+<!-- Document structure -->
+<!ELEMENT div1 (head, (div2 | decisions)*, p+)>
+<!ELEMENT div2 (#PCDATA) >
+<!ATTLIST div2 type (document | decisions) #REQUIRED>
 
-<!-- Paragraphs and heading within div -->
+<!-- Decision structure -->
+<!ELEMENT decisions (head, p+)>
 <!ELEMENT head (#PCDATA)>
-<!ELEMENT l (#PCDATA)>
+<!ELEMENT p (#PCDATA)>
 
-<!-- Names, aliases, and roles -->
-<!ELEMENT listPerson (person+)>
-<!ELEMENT person (persName?, alias*, roleName?)>
-<!ELEMENT persName (#PCDATA)>
-<!ELEMENT alias (#PCDATA)>
+<!ELEMENT back (listPerson,listPlace,listEvent)>
+
+<!-- Names, and roles -->
+<!ELEMENT listPerson (person)+>
+<!ELEMENT person (persName, birth?, death?) >
+<!ATTLIST person xml:id ID #REQUIRED>
+<!ELEMENT persName (#PCDATA|roleName|forename|surname)*>
+<!ATTLIST persName ref IDREF #IMPLIED>
+<!ATTLIST persName xml:lang NMTOKEN #IMPLIED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT forename (#PCDATA)>
+<!ELEMENT surname (#PCDATA)>
 <!ELEMENT roleName (#PCDATA)>
+<!ELEMENT birth (date)>
+<!ELEMENT death (date)>
 
-<!-- Date and place -->
-<!ELEMENT date (#PCDATA)>
-<!ATTLIST date when CDATA #IMPLIED>
-<!ELEMENT placeName (#PCDATA)>
+<!-- listplace -->
+<!ELEMENT listPlace (place)+>
+<!ELEMENT place (placeName)>
+<!ATTLIST place xml:id ID #REQUIRED>
+<!ELEMENT placeName (#PCDATA|adress|settlement)*>
+<!ATTLIST placeName ref IDREF #IMPLIED>
+<!ATTLIST placeName xml:lang NMTOKEN #IMPLIED>
+<!ELEMENT adress (street,settlement, country) >
+<!ELEMENT street (#PCDATA|num)*>
+<!ELEMENT num (#PCDATA) >
 
-<!-- Subject and keywords -->
-<!ELEMENT keywords (term+)>
-<!ELEMENT term (#PCDATA)>
-<!ATTLIST term type CDATA #IMPLIED>
-
-
+<!-- Subject -->
+<!ELEMENT listEvent (event)+ >
+<!ATTLIST event xml:id ID #REQUIRED>
+<!ATTLIST event ref IDREF #REQUIRED >
+<!ELEMENT event (eventName, note)>
+<!ELEMENT eventName (#PCDATA)>
+<!ELEMENT note (#PCDATA)>

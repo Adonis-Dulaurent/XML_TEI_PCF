@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng" type="application/xml"
+	schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<!DOCTYPE TEI SYSTEM "ReunionPCF.dtd">
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+  <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Title</title>
+            <author></author>
+         </titleStmt>
+         <publicationStmt>
+            <authority></authority>
+            <date></date>
+            <availability>
+               <licence></licence>
+            </availability>
+         </publicationStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <country>France</country>
+                  <settlement></settlement>
+                  <repository></repository>
+                  <idno></idno>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+  </teiHeader>
+  <text>
+      <body>
+         <div1 type="document">
+            <head></head>
+            <div2 type="decisions">
+                  <head></head>
+                  <p></p>
+            </div2>
+         </div1>
+      </body>
+ 
+  <back> 
+     <listPerson>
+      <person xml:id="person1">
+         <persName>
+            <forename>forename</forename>
+            <surname>surname</surname>
+            <roleName>roleName</roleName>
+         </persName>
+         <birth></birth>
+         <death></death>
+      </person>
+      <person xml:id="person2">
+         <persName>
+            <forename>forename</forename>
+            <surname>surname</surname>
+            <roleName>roleName</roleName>
+         </persName>
+         <birth></birth>
+         <death></death>
+      </person>
+   </listPerson>
+   <listPlace>
+      <place xml:id="place1">
+         <placeName>place</placeName>
+      </place>
+      <place xml:id="place2">
+         <placeName>place</placeName>
+      </place>
+   </listPlace>
+   <listEvent>
+      <event xml:id="event1">
+         <eventName></eventName>
+         <note>text</note>
+      </event>
+      <event xml:id="event2">
+         <eventName></eventName>
+         <note>text</note>
+      </event>
+   </listEvent>
+  </back> 
+ </text>
+</TEI>
