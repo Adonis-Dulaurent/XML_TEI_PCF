@@ -30,7 +30,7 @@ Each document is two or three typed pages detailing decisions and assignments, a
 
 ## Repository Structure: 
 
-- `~/ReunionPcfEncoding/`: This directory contains the XML files, as well as the DTD.
+- `~/ReunionPcfEncoding/`: This directory contains the XML-TEI files,one ODD and a HTML genereate by the ODD.
 
 - `~/Sources/`: Contains the meeting reports in PDF format.
 
